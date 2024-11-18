@@ -19,4 +19,4 @@
 
 - Run `npm run start:dev` in the root (`/server`) directory
 
-** Select username, and add some stocks! **
+**Select username, and add some stocks!**
