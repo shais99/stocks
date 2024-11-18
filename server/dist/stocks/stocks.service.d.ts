@@ -33,6 +33,7 @@ export declare class StocksService {
     create(createStockDto: CreateStockDto): Promise<Stock>;
     findAll(username: string): Promise<Stock[]>;
     delete(id: string): Promise<Stock>;
+    getStock(symbol: string, username: string): Promise<Stock>;
     search(query: string): Promise<Stock[]>;
     getQuote(id: string, username: string): Promise<Quote>;
 }

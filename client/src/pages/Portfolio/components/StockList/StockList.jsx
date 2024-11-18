@@ -12,6 +12,7 @@ export const StockList = ({stocks, onDeleteStock}) => {
                 <Card
                     style={{height: '100%', width: 250, margin: 6}}
                     key={stock.symbol}
+                    title={stock.name}
                     actions={[
                         <DeleteOutlined key="delete" style={{ color: 'red' }}
                                         onClick={() => onDeleteStock(stock._id)}/>,
@@ -19,10 +20,7 @@ export const StockList = ({stocks, onDeleteStock}) => {
                                       onClick={() => navigate(`/stocks/${stock._id}`)}/>
                     ]}
                 >
-                    <h3>
-                        {stock.symbol}
-                    </h3>
-                    <span>{stock.name}</span>
+                    <h3>Symbol: {stock.symbol}</h3>
                 </Card>
             ))}
         </Row>

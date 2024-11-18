@@ -32,6 +32,12 @@ let StocksService = class StocksService {
     async delete(id) {
         return this.stockModel.findByIdAndDelete(id).exec();
     }
+    async getStock(symbol, username) {
+        return this.stockModel.findOne({
+            symbol,
+            username
+        }).exec();
+    }
     async search(query) {
         try {
             const response = await axios_1.default.get(`https://financialmodelingprep.com/api/v3/search?apikey=${process.env.FMP_API_KEY}&query=${query}&limit=20`);

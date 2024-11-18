@@ -7,25 +7,27 @@ export const SearchStock = observer(({ options, onSearch, onChange, value }) => 
     const { user } = userStore
 
     return (
-        <Select
-            onSearch={onSearch}
-            value={value || undefined}
-            showSearch
-            placeholder="Search Stocks"
-            style={{ minWidth: 200, width: '50%', margin: 20 }}
-            filterOption={false}
-            onChange={user ? onChange : undefined}
-            disabled={!user}
-        >
-            {options.map(option =>
-                <Select.Option
-                    key={option.symbol}
-                    value={option.symbol}
-                    style={{ cursor: user ? 'pointer' : 'not-allowed'}}
-                >
-                    Symbol: {option.symbol} | Name: {option.name}
-                </Select.Option>
-            )}
-        </Select>
+        <div style={{ width: '100%', padding: 20 }}>
+            <Select
+                onSearch={onSearch}
+                value={value || undefined}
+                showSearch
+                placeholder="Search Stocks"
+                style={{ width: '100%' }}
+                filterOption={false}
+                onChange={user ? onChange : undefined}
+                disabled={!user}
+            >
+                {options.map(option =>
+                    <Select.Option
+                        key={option.symbol}
+                        value={option.symbol}
+                        style={{ cursor: user ? 'pointer' : 'not-allowed'}}
+                    >
+                        Symbol: {option.symbol} | Name: {option.name}
+                    </Select.Option>
+                )}
+            </Select>
+        </div>
     )
 })

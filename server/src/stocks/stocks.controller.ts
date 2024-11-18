@@ -10,7 +10,13 @@ export class StocksController {
     }
 
     @Post()
-    create(@Body() createStockDto: CreateStockDto): Promise<Stock> {
+    async create(@Body() createStockDto: CreateStockDto): Promise<Stock> {
+        const existingStock = await this.stocksService.getStock(createStockDto.symbol, createStockDto.username);
+
+        if (existingStock) {
+            return existingStock;
+        }
+
         return this.stocksService.create(createStockDto);
     }
 

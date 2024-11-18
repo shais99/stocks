@@ -1,5 +1,5 @@
 export declare class CreateStockDto {
     name: string;
-    description?: string;
-    price: number;
+    symbol: string;
+    username: string;
 }

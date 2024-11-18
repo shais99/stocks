@@ -18,6 +18,12 @@ class StockStore {
             const addedStock = await addStock(stock)
 
             runInAction(() => {
+                const doesStockExist = this.stocks.find(s => s.symbol === addedStock.symbol)
+
+                if (doesStockExist) {
+                    return
+                }
+
                 this.stocks.push(addedStock)
             })
         } catch (err) {

@@ -20,7 +20,11 @@ let StocksController = class StocksController {
     constructor(stocksService) {
         this.stocksService = stocksService;
     }
-    create(createStockDto) {
+    async create(createStockDto) {
+        const existingStock = await this.stocksService.getStock(createStockDto.symbol, createStockDto.username);
+        if (existingStock) {
+            return existingStock;
+        }
         return this.stocksService.create(createStockDto);
     }
     findAll(username) {
