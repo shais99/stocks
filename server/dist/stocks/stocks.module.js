@@ -17,7 +17,9 @@ let StocksModule = class StocksModule {
 exports.StocksModule = StocksModule;
 exports.StocksModule = StocksModule = __decorate([
     (0, common_1.Module)({
-        imports: [mongoose_1.MongooseModule.forFeature([{ name: stock_schema_1.Stock.name, schema: stock_schema_1.StockSchema }])],
+        imports: [
+            mongoose_1.MongooseModule.forFeature([{ name: stock_schema_1.Stock.name, schema: stock_schema_1.StockSchema }]),
+        ],
         controllers: [stocks_controller_1.StocksController],
         providers: [stocks_service_1.StocksService],
     })

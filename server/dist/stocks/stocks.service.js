@@ -33,10 +33,12 @@ let StocksService = class StocksService {
         return this.stockModel.findByIdAndDelete(id).exec();
     }
     async getStock(symbol, username) {
-        return this.stockModel.findOne({
+        return this.stockModel
+            .findOne({
             symbol,
-            username
-        }).exec();
+            username,
+        })
+            .exec();
     }
     async search(query) {
         try {

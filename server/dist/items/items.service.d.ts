@@ -23,15 +23,15 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 /// <reference types="mongoose/types/inferrawdoctype" />
-import { Model } from 'mongoose';
-import { Item, ItemDocument } from './schemas/item.schema';
-import { CreateItemDto } from './dto/create-item.dto';
+import { Model } from "mongoose";
+import { Item, ItemDocument } from "./schemas/item.schema";
+import { CreateItemDto } from "./dto/create-item.dto";
 export declare class ItemsService {
-    private readonly itemModel;
-    constructor(itemModel: Model<ItemDocument>);
-    create(createItemDto: CreateItemDto): Promise<Item>;
-    findAll(): Promise<Item[]>;
-    findOne(id: string): Promise<Item>;
-    delete(id: string): Promise<Item>;
-    update(id: string, createItemDto: CreateItemDto): Promise<Item>;
+  private readonly itemModel;
+  constructor(itemModel: Model<ItemDocument>);
+  create(createItemDto: CreateItemDto): Promise<Item>;
+  findAll(): Promise<Item[]>;
+  findOne(id: string): Promise<Item>;
+  delete(id: string): Promise<Item>;
+  update(id: string, createItemDto: CreateItemDto): Promise<Item>;
 }

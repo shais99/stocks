@@ -1,17 +1,17 @@
-import {makeAutoObservable, runInAction} from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 
 class UserStore {
-    user = window.localStorage.getItem('user') || ''
+  user = window.localStorage.getItem("user") || "";
 
-    constructor() {
-        makeAutoObservable(this);
-    }
+  constructor() {
+    makeAutoObservable(this);
+  }
 
-    setUser(username) {
-        runInAction(() => {
-            this.user = username
-        })
-    }
+  setUser(username) {
+    runInAction(() => {
+      this.user = username;
+    });
+  }
 }
 
 const userStore = new UserStore();

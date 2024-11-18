@@ -1,6 +1,6 @@
 .logo {
-    color: white;
-    font-size: 1.5rem;
+  color: white;
+  font-size: 1.5rem;
 }
 
 h1,
@@ -10,13 +10,13 @@ h4,
 h5,
 h6,
 p {
-    margin: 0;
+  margin: 0;
 }
 
 .icon {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }

@@ -1,3 +1,3 @@
-import {Input as AntdInput} from 'antd'
+import { Input as AntdInput } from "antd";
 
-export const Input = props => <AntdInput {...props} />
+export const Input = (props) => <AntdInput {...props} />;

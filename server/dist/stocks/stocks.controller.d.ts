@@ -1,6 +1,6 @@
-import { StocksService } from './stocks.service';
-import { CreateStockDto } from './dto/create-stock.dto';
-import { Stock } from './schemas/stock.schema';
+import { StocksService } from "./stocks.service";
+import { CreateStockDto } from "./dto/create-stock.dto";
+import { Stock } from "./schemas/stock.schema";
 import { Quote } from "./interfaces/Quote";
 export declare class StocksController {
     private readonly stocksService;

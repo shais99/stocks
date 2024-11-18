@@ -1,7 +1,7 @@
-import { Menu as AntdMenu } from 'antd';
+import { Menu as AntdMenu } from "antd";
 
-const Menu = ({ ...rest }) => <AntdMenu {...rest} />
+const Menu = ({ ...rest }) => <AntdMenu {...rest} />;
 
 Menu.Item = AntdMenu.Item;
 
-export { Menu }
+export { Menu };

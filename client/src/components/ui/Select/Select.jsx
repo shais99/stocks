@@ -1,6 +1,8 @@
-import { Select as AntdSelect } from 'antd';
+import { Select as AntdSelect } from "antd";
 
-const Select = ({ children, ...rest }) => <AntdSelect {...rest}>{children}</AntdSelect>;
+const Select = ({ children, ...rest }) => (
+  <AntdSelect {...rest}>{children}</AntdSelect>
+);
 
 Select.Option = AntdSelect.Option;
 

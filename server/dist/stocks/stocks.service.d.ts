@@ -23,9 +23,9 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 /// <reference types="mongoose/types/inferrawdoctype" />
-import { Model } from 'mongoose';
-import { Stock, StockDocument } from './schemas/stock.schema';
-import { CreateStockDto } from './dto/create-stock.dto';
+import { Model } from "mongoose";
+import { Stock, StockDocument } from "./schemas/stock.schema";
+import { CreateStockDto } from "./dto/create-stock.dto";
 import { Quote } from "./interfaces/Quote";
 export declare class StocksService {
     private readonly stockModel;

@@ -18,10 +18,10 @@ exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             config_1.ConfigModule.forRoot({
-                isGlobal: true
+                isGlobal: true,
             }),
             mongoose_1.MongooseModule.forRoot(process.env.MONGO_URI),
-            stocks_module_1.StocksModule
+            stocks_module_1.StocksModule,
         ],
     })
 ], AppModule);

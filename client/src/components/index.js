@@ -1,2 +1,2 @@
-export * from './ui'
-export * from './SearchStock'
+export * from "./ui";
+export * from "./SearchStock";

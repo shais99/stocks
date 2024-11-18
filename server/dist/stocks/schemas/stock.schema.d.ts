@@ -23,7 +23,7 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 /// <reference types="mongoose/types/inferrawdoctype" />
-import { Document } from 'mongoose';
+import { Document } from "mongoose";
 export type StockDocument = Stock & Document;
 export declare class Stock {
     name: string;

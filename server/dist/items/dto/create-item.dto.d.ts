@@ -1,5 +1,5 @@
 export declare class CreateItemDto {
-    name: string;
-    description?: string;
-    price: number;
+  name: string;
+  description?: string;
+  price: number;
 }
