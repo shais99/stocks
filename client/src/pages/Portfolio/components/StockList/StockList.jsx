@@ -13,7 +13,7 @@ export const StockList = ({stocks, onDeleteStock}) => {
                     style={{height: '100%', width: 250, margin: 6}}
                     key={stock.symbol}
                     actions={[
-                        <DeleteOutlined key="delete" className="icon pointer"
+                        <DeleteOutlined key="delete" style={{ color: 'red' }}
                                         onClick={() => onDeleteStock(stock._id)}/>,
                         <InfoOutlined key="info" className="icon pointer"
                                       onClick={() => navigate(`/stocks/${stock._id}`)}/>
