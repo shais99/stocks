@@ -27,8 +27,8 @@ import { Document } from 'mongoose';
 export type StockDocument = Stock & Document;
 export declare class Stock {
     name: string;
-    description: string;
-    price: number;
+    symbol: string;
+    username: string;
 }
 export declare const StockSchema: import("mongoose").Schema<Stock, import("mongoose").Model<Stock, any, any, any, Document<unknown, any, Stock> & Stock & {
     _id: import("mongoose").Types.ObjectId;

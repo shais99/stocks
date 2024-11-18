@@ -23,17 +23,17 @@ let StocksController = class StocksController {
     create(createStockDto) {
         return this.stocksService.create(createStockDto);
     }
-    findAll() {
-        return this.stocksService.findAll();
+    findAll(username) {
+        return this.stocksService.findAll(username);
     }
-    findOne(id) {
-        return this.stocksService.findOne(id);
+    findOne(id, username) {
+        return this.stocksService.getQuote(id, username);
+    }
+    search(query) {
+        return this.stocksService.search(query);
     }
     delete(id) {
         return this.stocksService.delete(id);
-    }
-    update(id, createStockDto) {
-        return this.stocksService.update(id, createStockDto);
     }
 };
 exports.StocksController = StocksController;
@@ -45,18 +45,27 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], StocksController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], StocksController.prototype, "findAll", null);
-__decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Get)(":username"),
+    __param(0, (0, common_1.Param)('username')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
+], StocksController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)('/quote/:id/:username'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Param)('username')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", Promise)
 ], StocksController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Get)('search/:query'),
+    __param(0, (0, common_1.Param)('query')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], StocksController.prototype, "search", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
@@ -64,14 +73,6 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], StocksController.prototype, "delete", null);
-__decorate([
-    (0, common_1.Put)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __param(1, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, create_stock_dto_1.CreateStockDto]),
-    __metadata("design:returntype", Promise)
-], StocksController.prototype, "update", null);
 exports.StocksController = StocksController = __decorate([
     (0, common_1.Controller)('stocks'),
     __metadata("design:paramtypes", [stocks_service_1.StocksService])

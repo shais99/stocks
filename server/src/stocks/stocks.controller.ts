@@ -2,6 +2,7 @@ import {Controller, Get, Post, Body, Param, Delete, Put} from '@nestjs/common';
 import {StocksService} from './stocks.service';
 import {CreateStockDto} from './dto/create-stock.dto';
 import {Stock} from './schemas/stock.schema';
+import {Quote} from "./interfaces/Quote";
 
 @Controller('stocks')
 export class StocksController {
@@ -13,23 +14,23 @@ export class StocksController {
         return this.stocksService.create(createStockDto);
     }
 
-    @Get()
-    findAll(): Promise<Stock[]> {
-        return this.stocksService.findAll();
+    @Get(":username")
+    findAll(@Param('username') username: string): Promise<Stock[]> {
+        return this.stocksService.findAll(username);
     }
 
-    @Get(':id')
-    findOne(@Param('id') id: string): Promise<Stock> {
-        return this.stocksService.findOne(id);
-    }I
+    @Get('/quote/:id/:username')
+    findOne(@Param('id') id: string, @Param('username') username: string): Promise<Quote> {
+        return this.stocksService.getQuote(id, username);
+    }
+
+    @Get('search/:query')
+    search(@Param('query') query: string): Promise<Stock[]> {
+        return this.stocksService.search(query);
+    }
 
     @Delete(':id')
     delete(@Param('id') id: string): Promise<Stock> {
         return this.stocksService.delete(id);
-    }
-
-    @Put(':id')
-    update(@Param('id') id: string, @Body() createStockDto: CreateStockDto): Promise<Stock> {
-        return this.stocksService.update(id, createStockDto);
     }
 }

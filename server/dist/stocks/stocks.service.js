@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.StocksService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
+const axios_1 = require("axios");
 const mongoose_2 = require("mongoose");
 const stock_schema_1 = require("./schemas/stock.schema");
 let StocksService = class StocksService {
@@ -25,17 +26,34 @@ let StocksService = class StocksService {
         const newStock = new this.stockModel(createStockDto);
         return newStock.save();
     }
-    async findAll() {
-        return this.stockModel.find().exec();
-    }
-    async findOne(id) {
-        return this.stockModel.findById(id).exec();
+    async findAll(username) {
+        return this.stockModel.find({ username }).exec();
     }
     async delete(id) {
         return this.stockModel.findByIdAndDelete(id).exec();
     }
-    async update(id, createStockDto) {
-        return this.stockModel.findByIdAndUpdate(id, createStockDto, { new: true }).exec();
+    async search(query) {
+        try {
+            const response = await axios_1.default.get(`https://financialmodelingprep.com/api/v3/search?apikey=${process.env.FMP_API_KEY}&query=${query}&limit=20`);
+            return response.data;
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+    async getQuote(id, username) {
+        const stockById = await this.stockModel.findById(id).exec();
+        if (!stockById || stockById.username !== username) {
+            throw new common_1.NotFoundException(`Stock with ID ${id} not found`);
+        }
+        try {
+            const response = await axios_1.default.get(`https://financialmodelingprep.com/api/v3/quote/${stockById.symbol}?apikey=${process.env.FMP_API_KEY}`);
+            return response.data[0];
+        }
+        catch (err) {
+            console.error(err);
+            throw err;
+        }
     }
 };
 exports.StocksService = StocksService;

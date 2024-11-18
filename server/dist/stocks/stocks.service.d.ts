@@ -26,12 +26,13 @@
 import { Model } from 'mongoose';
 import { Stock, StockDocument } from './schemas/stock.schema';
 import { CreateStockDto } from './dto/create-stock.dto';
+import { Quote } from "./interfaces/Quote";
 export declare class StocksService {
     private readonly stockModel;
     constructor(stockModel: Model<StockDocument>);
     create(createStockDto: CreateStockDto): Promise<Stock>;
-    findAll(): Promise<Stock[]>;
-    findOne(id: string): Promise<Stock>;
+    findAll(username: string): Promise<Stock[]>;
     delete(id: string): Promise<Stock>;
-    update(id: string, createStockDto: CreateStockDto): Promise<Stock>;
+    search(query: string): Promise<Stock[]>;
+    getQuote(id: string, username: string): Promise<Quote>;
 }

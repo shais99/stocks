@@ -19,13 +19,13 @@ __decorate([
     __metadata("design:type", String)
 ], Stock.prototype, "name", void 0);
 __decorate([
-    (0, mongoose_1.Prop)(),
+    (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
-], Stock.prototype, "description", void 0);
+], Stock.prototype, "symbol", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
-    __metadata("design:type", Number)
-], Stock.prototype, "price", void 0);
+    __metadata("design:type", String)
+], Stock.prototype, "username", void 0);
 exports.Stock = Stock = __decorate([
     (0, mongoose_1.Schema)()
 ], Stock);
